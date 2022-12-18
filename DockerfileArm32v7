@@ -6,8 +6,8 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim-arm32v7 AS build
 WORKDIR /src
 COPY ["src/Cesxhin.AnimeManga.UpgradeService/", "./Cesxhin.AnimeManga.UpgradeService/"]
-COPY ["src/Cesxhin.AnimeManga.Domain/", "./refereces/Cesxhin.AnimeManga.Domain/"]
-COPY ["src/Cesxhin.AnimeManga.Application/", "./refereces/Cesxhin.AnimeManga.Application/"]
+COPY ["src/refereces/Cesxhin.AnimeManga.Domain/", "./refereces/Cesxhin.AnimeManga.Domain/"]
+COPY ["src/refereces/Cesxhin.AnimeManga.Application/", "./refereces/Cesxhin.AnimeManga.Application/"]
 
 RUN dotnet restore "./Cesxhin.AnimeManga.UpgradeService/Cesxhin.AnimeManga.UpgradeService.csproj"
 
