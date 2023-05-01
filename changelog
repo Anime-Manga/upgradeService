@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 30-04-2023
 ### Add
 - Upgrade also description merge with old description
+- Now description is managed by a schema
 
 ## [1.0.0] - 18-12-2022
 ### Version Stable
