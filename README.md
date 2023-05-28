@@ -1,7 +1,15 @@
 ## 💽Upgrade Service
 Questo progetto verrà utilizzato per scaricare i nuovi episodi
 ### Information general:
-- `not` require volume mounted on Docker
+> Note: `not` require volume mounted on Docker
+
+### Dependencies
+| Services | Required |
+| ------ | ------ |
+| Api | ✅  |
+| RabbitMQ | ✅  |
+| Notify | ⛔ |
+
 ### Variabili globali richiesti:
 ```sh
 example:
