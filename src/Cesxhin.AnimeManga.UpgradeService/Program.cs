@@ -2,6 +2,7 @@ using Cesxhin.AnimeManga.Application.CheckManager;
 using Cesxhin.AnimeManga.Application.CheckManager.Interfaces;
 using Cesxhin.AnimeManga.Application.CronJob;
 using Cesxhin.AnimeManga.Application.Generic;
+using Cesxhin.AnimeManga.Application.Schema;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,7 @@ namespace Cesxhin.AnimeManga.UpgradeService
     {
         public static void Main(string[] args)
         {
+            SchemaControl.Check();
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -45,7 +47,7 @@ namespace Cesxhin.AnimeManga.UpgradeService
                     NLogManager.Configure(logLevel);
 
                     //select service between anime or manga
-                    var serviceSelect = Environment.GetEnvironmentVariable("SELECT_SERVICE") ?? "anime";
+                    var serviceSelect = Environment.GetEnvironmentVariable("SELECT_SERVICE") ?? "video";
 
                     //cronjob for check health
                     services.AddQuartz(q =>
@@ -60,10 +62,10 @@ namespace Cesxhin.AnimeManga.UpgradeService
 
                     
 
-                    if (serviceSelect.ToLower().Contains("anime"))
-                        services.AddTransient<IUpgrade, UpgradeAnime>();
+                    if (serviceSelect.ToLower().Contains("video"))
+                        services.AddTransient<IUpgrade, UpgradeVideo>();
                     else
-                        services.AddTransient<IUpgrade, UpgradeManga>();
+                        services.AddTransient<IUpgrade, UpgradeBook>();
 
                     services.AddHostedService<Worker>();
                 });

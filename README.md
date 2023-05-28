@@ -1,7 +1,15 @@
 ## 💽Upgrade Service
 Questo progetto verrà utilizzato per scaricare i nuovi episodi
 ### Information general:
-- `not` require volume mounted on Docker
+> Note: `not` require volume mounted on Docker
+
+### Dependencies
+| Services | Required |
+| ------ | ------ |
+| Api | ✅  |
+| RabbitMQ | ✅  |
+| Notify | ⛔ |
+
 ### Variabili globali richiesti:
 ```sh
 example:
@@ -23,5 +31,5 @@ example:
     BASE_PATH: "/folder/anime" or "D:\\\\Directory\Anime" #http [default]
     TIME_REFRESH: "60000" <-- milliseconds #1200000 [default] 20 minutes
     LIMIT_THREAD_PARALLEL: "8" #5 [default]
-    SELECT_SERVICE: "manga or anime" #anime
+    SELECT_SERVICE: "book or video" #video
 ```
