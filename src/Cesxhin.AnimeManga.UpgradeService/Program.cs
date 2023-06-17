@@ -1,8 +1,8 @@
 using Cesxhin.AnimeManga.Application.CheckManager;
 using Cesxhin.AnimeManga.Application.CheckManager.Interfaces;
-using Cesxhin.AnimeManga.Application.CronJob;
-using Cesxhin.AnimeManga.Application.Generic;
-using Cesxhin.AnimeManga.Application.Schema;
+using Cesxhin.AnimeManga.Modules.CronJob;
+using Cesxhin.AnimeManga.Modules.Generic;
+using Cesxhin.AnimeManga.Modules.Schema;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
