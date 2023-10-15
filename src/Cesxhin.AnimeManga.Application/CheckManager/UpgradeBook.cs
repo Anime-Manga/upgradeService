@@ -176,7 +176,7 @@ namespace Cesxhin.AnimeManga.Application.CheckManager
                             chapterRegisterApi.PostMore("/chapters/registers", listChapterRegister).GetAwaiter();
 
                             //create message for notify
-                            string message = $"Add new chapter of {name_id}\n";
+                            string message = $"Added chapter of {name_id}\n";
 
                             listChaptersAdd.Sort(delegate (ChapterDTO p1, ChapterDTO p2) { return p1.CurrentChapter.CompareTo(p2.CurrentChapter); });
                             foreach (var episodeNotify in listChaptersAdd)

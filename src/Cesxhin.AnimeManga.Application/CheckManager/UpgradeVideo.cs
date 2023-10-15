@@ -191,7 +191,7 @@ namespace Cesxhin.AnimeManga.Application.CheckManager
                             }
 
                             //create message for notify
-                            string message = $"Add new episode of {name_id}\n";
+                            string message = $"Added episode of {name_id}\n";
 
                             listEpisodesAdd.Sort(delegate (EpisodeDTO p1, EpisodeDTO p2) { return p1.NumberEpisodeCurrent.CompareTo(p2.NumberEpisodeCurrent); });
                             foreach (var episodeNotify in listEpisodesAdd)
