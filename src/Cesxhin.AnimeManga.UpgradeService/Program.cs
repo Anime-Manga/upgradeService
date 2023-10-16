@@ -1,6 +1,5 @@
 using Cesxhin.AnimeManga.Application.CheckManager;
 using Cesxhin.AnimeManga.Application.CheckManager.Interfaces;
-using Cesxhin.AnimeManga.Modules.CronJob;
 using Cesxhin.AnimeManga.Modules.Generic;
 using Cesxhin.AnimeManga.Modules.Schema;
 using MassTransit;
@@ -48,19 +47,6 @@ namespace Cesxhin.AnimeManga.UpgradeService
 
                     //select service between anime or manga
                     var serviceSelect = Environment.GetEnvironmentVariable("SELECT_SERVICE") ?? "video";
-
-                    //cronjob for check health
-                    services.AddQuartz(q =>
-                    {
-                        q.UseMicrosoftDependencyInjectionJobFactory();
-                        q.ScheduleJob<HealthJob>(trigger => trigger
-                            .StartNow()
-                            .WithDailyTimeIntervalSchedule(x => x.WithIntervalInSeconds(60)), job => job.WithIdentity("upgrade-"+serviceSelect));
-                        //q.AddJob<CronJob>(job => job.WithIdentity("update"));
-                    });
-                    services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
-
-                    
 
                     if (serviceSelect.ToLower().Contains("video"))
                         services.AddTransient<IUpgrade, UpgradeVideo>();
